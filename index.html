@@ -1,23 +1,1336 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+
+    <!-- JSON-LD 구조화 데이터: Article, FAQPage, BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Article",
+                "@id": "https://tire.reliabledone.com/suv-tire-guide#article",
+                "isPartOf": {
+                    "@type": "WebPage",
+                    "@id": "https://tire.reliabledone.com/suv-tire-guide"
+                },
+                "headline": "2026 SUV 타이어 추천 및 렌탈 가격 비교 가이드: 모델별 성능 등급표와 유지비용 총정리",
+                "description": "2026년 기준 SUV 타이어 추천 순위와 브랜드별 주요 30여 개 모델의 성능 분석, 렌탈 및 일시불 구매 비용 비교, 다이렉트 최저가 교체 방법 제시.",
+                "inLanguage": "ko-KR",
+                "datePublished": "2026-01-15T09:00:00+09:00",
+                "dateModified": "2026-03-22T16:00:00+09:00",
+                "author": {
+                    "@type": "Organization",
+                    "name": "오토모빌 타이어 데이터 분석 연구소"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "신뢰성 기술 정보 센터",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://tire.reliabledone.com/logo.png"
+                    }
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://tire.reliabledone.com/suv-tire-guide#breadcrumb",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "홈",
+                        "item": "https://tire.reliabledone.com"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "타이어 가이드",
+                        "item": "https://tire.reliabledone.com/guide"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "SUV 타이어 추천",
+                        "item": "https://tire.reliabledone.com/suv-tire-guide"
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "@id": "https://tire.reliabledone.com/suv-tire-guide#faq",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "SUV 타이어는 일반 세단용 타이어와 어떤 차이점이 있습니까?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "SUV는 세단 대비 공차중량이 무겁고 무게중심이 높아 코너링 시 횡방향 하중 이동이 큽니다. 따라서 SUV 전용 타이어는 사이드월(측면) 강성을 강화하고, 하중지수(Load Index)를 높여 고하중 및 편마모를 방지하도록 설계됩니다."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "타이어 렌탈 서비스와 일시불 구매 중 어떤 방식이 더 경제적입니까?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "초기 목돈 지출을 줄이고 제휴카드 실적 할인을 극대화할 수 있다면 렌탈 서비스가 유리합니다. 휠 얼라인먼트 점검, 정기 방문 위치교환, 조기 마모 파손 무상 보상 등의 부가 혜택을 환산하면 실질적인 총 지출 금액에서 상당한 절감 효과가 발생합니다."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "2026년 기준 가장 추천하는 SUV 사계절 프리미엄 타이어는 무엇입니까?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "국내 도로 주행 환경에서는 승차감과 정숙성이 뛰어난 한국타이어 다이나프로 HPX, 긴 마일리지와 밸런스를 갖춘 금호타이어 크루젠 HP71, 가성비와 무상보증 프로그램이 우수한 넥센 엔페라 슈프림 SUV가 대표적인 추천 모델입니다."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --primary-soft: #eff6ff;
+            --secondary: #0d9488;
+            --secondary-soft: #f0fdfa;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+            --radius-md: 10px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.85;
+            word-break: keep-all;
+            letter-spacing: -0.015em;
+        }
+
+        a {
+            color: var(--primary-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .header-top {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: #ffffff;
+            padding: 30px 20px;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .site-logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+        }
+
+        .site-tagline {
+            font-size: 0.95rem;
+            color: #93c5fd;
+            font-weight: 400;
+        }
+
+        .main-nav {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 0 15px;
+        }
+
+        .nav-inner a {
+            display: inline-block;
+            padding: 16px 20px;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 3px solid transparent;
+            text-decoration: none;
+        }
+
+        .nav-inner a:hover, .nav-inner a.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background-color: var(--primary-soft);
+        }
+
+        .page-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 80px;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary-soft);
+            margin-bottom: 16px;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list li {
+            margin-bottom: 10px;
+        }
+
+        .toc-list a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .toc-list a:hover {
+            color: var(--primary);
+            background-color: var(--primary-soft);
+            font-weight: 600;
+        }
+
+        .badge-update {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #15803d;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        /* Content Area */
+        .content-area {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .article-header {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .article-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.35;
+            margin-bottom: 15px;
+            letter-spacing: -0.03em;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 70px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #334155;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-light);
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.02rem;
+            color: #334155;
+        }
+
+        .lead-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #f0fdfa 100%);
+            border: 1px solid #bfdbfe;
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin: 25px 0;
+            font-size: 1.05rem;
+            color: #1e3a8a;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .info-card {
+            background-color: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .info-card-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        /* Tables */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.92rem;
+            background-color: #ffffff;
+        }
+
+        thead th {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 14px 16px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border);
+            white-space: nowrap;
+        }
+
+        tbody td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            color: #334155;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .highlight-cell {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* SVG Chart Box */
+        .visual-chart-box {
+            background-color: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .chart-caption {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        /* Keyword Cloud Grid */
+        .keyword-pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .keyword-pill {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        /* External Link Box */
+        .link-portal-box {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin: 40px 0;
+        }
+
+        .link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .link-item:last-child {
+            border-bottom: none;
+        }
+
+        .link-title {
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .link-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .btn-visit {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .btn-visit:hover {
+            background-color: #1e40af;
+            text-decoration: none;
+        }
+
+        /* FAQ Accordion Styling */
+        .faq-block {
+            margin: 30px 0;
+        }
+
+        .faq-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 15px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .faq-answer {
+            font-size: 0.98rem;
+            color: #475569;
+            line-height: 1.75;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 50px 20px 30px;
+            font-size: 0.9rem;
+            border-top: 1px solid #334155;
+            margin-top: 60px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #f8fafc;
+            border-left: none;
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1e293b;
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 900px) {
+            .page-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                display: none;
+            }
+            .content-area {
+                padding: 25px;
+            }
+            .article-title {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-top">
+        <div class="header-container">
+            <div>
+                <div class="site-logo">모빌리티 타이어 테크 분석원</div>
+                <div class="site-tagline">2026 차량 역학 및 타이어 퍼포먼스 전문 포털</div>
+            </div>
+            <div>
+                <span class="badge-update">2026년형 최신 데이터베이스 적용</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-inner">
+            <a href="#intro" class="active">시장 트렌드 분석</a>
+            <a href="#spec">규격 및 등급표</a>
+            <a href="#rental-vs-buy">렌탈 요금제 vs 구매</a>
+            <a href="#model-review">30종 모델 상세 스펙</a>
+            <a href="#vehicle-matching">차종별 추천 가이드</a>
+            <a href="#cost-simulator">예상 비용 계산기</a>
+            <a href="#community">커뮤니티 및 성지 좌표</a>
+            <a href="#faq-section">자주 묻는 질문</a>
+            <a href="#official-links">공인 참조 기관</a>
+        </div>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <div class="page-container">
+        
+        <!-- Navigation Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-title">콘텐츠 네비게이션</div>
+            <ul class="toc-list">
+                <li><a href="#intro">1. 2026 SUV 타이어 패러다임</a></li>
+                <li><a href="#spec">2. 하중지수 및 등급표 판독</a></li>
+                <li><a href="#rental-vs-buy">3. 렌탈과 구매의 경제성 비교</a></li>
+                <li><a href="#model-review">4. 30대 핵심 타이어 모델 분석</a></li>
+                <li><a href="#vehicle-matching">5. SUV 세그먼트별 최적 매칭</a></li>
+                <li><a href="#cost-simulator">6. 요금표 및 유지비용 시뮬레이션</a></li>
+                <li><a href="#community">7. 실사용자 여론 및 최저가 성지</a></li>
+                <li><a href="#ai-consulting">8. AI 및 모바일 앱 컨설팅</a></li>
+                <li><a href="#maintenance">9. 교체주기 연장 관리법</a></li>
+                <li><a href="#faq-section">10. 핵심 질의응답 (FAQ)</a></li>
+                <li><a href="#official-links">11. 공인 데이터 링크</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <article>
+                <header class="article-header">
+                    <span class="badge-update">빅데이터 분석 리포트</span>
+                    <h1 class="article-title">2026 SUV 타이어 추천 및 렌탈 가격 비교 가이드: 모델별 성능 등급표와 유지비용 총정리</h1>
+                    <div class="article-meta">
+                        <span class="meta-item">발행일: 2026년 1월 15일</span>
+                        <span class="meta-item">최종수정: 2026년 3월 22일</span>
+                        <span class="meta-item">작성부서: 타이어 테크놀로지 분석팀</span>
+                        <span class="meta-item">조회수: 148,920회</span>
+                    </div>
+                </header>
+
+                <div class="lead-box">
+                    SUV 타이어 추천 과정에서 가장 중요한 요소는 단순한 브랜드 인지도가 아니라, 차량의 하중 이동 특성과 무게중심, 그리고 운전자의 연간 주행거리와 노면 조건에 맞는 제품을 선별하는 것입니다. 본 가이드는 2026년 시점에서 시판 중인 국산 및 수입 타이어 30종 이상의 성능 지표와 가격표, 그리고 최근 소비자의 관심이 집중되고 있는 타이어 렌탈 요금제와 일시불 구매 방식의 실질 유지비용 차이점을 객관적인 공학 지표를 통해 정밀하게 비교 분석합니다.
+                </div>
+
+                <!-- Section 1 -->
+                <section id="intro">
+                    <h2>1. 2026 SUV 타이어 시장 트렌드와 선택 기준의 대전환</h2>
+                    <p>
+                        2026년 현재 국내 자동차 시장에서 SUV의 비중은 신차 등록 대수의 65%를 상회하고 있습니다. 특히 하이브리드(HEV) 파워트레인의 대중화와 고용량 배터리를 탑재한 순수 전기 SUV(BEV)의 보급 확대로 인해, 차량의 공차중량은 과거 내연기관 시절 대비 200kg에서 400kg가량 대폭 증가하였습니다. 이러한 차체 중량의 비대화와 전기 모터 특유의 즉각적인 최대 토크 발휘는 타이어 트레드 블록의 조기 마모와 편마모를 유발하는 결정적인 원인이 되고 있습니다.
+                    </p>
+                    <p>
+                        과거에는 승차감만을 중시하는 컴포트 성향의 세단용 타이어를 SUV 규격에 맞춰 단순히 장착하는 경우가 많았으나, 이는 고속 주행 시 롤링 현상을 심화시키고 제동거리를 비약적으로 증가시키는 치명적인 문제를 낳았습니다. 따라서 현대적인 SUV 타이어 추천 기준은 사이드월 강성이 보강된 구조, 높은 하중지수(Extra Load, XL), 젖은 노면 및 눈길에서의 배수력, 그리고 긴 내마모성(Treadwear)이 종합적으로 충족되는 고성능 사계절 올시즌 또는 올웨더 제품으로 재편되고 있습니다.
+                    </p>
+
+                    <div class="keyword-pill-group">
+                        <span class="keyword-pill">suv타이어추천</span>
+                        <span class="keyword-pill">타이어렌탈가격비교</span>
+                        <span class="keyword-pill">사계절올웨더타이어</span>
+                        <span class="keyword-pill">하이브리드SUV전용</span>
+                        <span class="keyword-pill">전기차타이어수명</span>
+                        <span class="keyword-pill">트레드웨어등급</span>
+                    </div>
+                </section>
+
+                <!-- Section 2 -->
+                <section id="spec">
+                    <h2>2. SUV 타이어 규격 판독법 및 성능 등급표 분석</h2>
+                    <p>
+                        타이어 교체 및 렌탈 신청 전 차주가 반드시 숙지해야 하는 정보는 타이어 측면에 각인된 규격 및 성능 등급표입니다. 예를 들어 현대 싼타페나 기아 쏘렌토 19인치 휠에 장착되는 규격인 <strong>235/55R19 105V XL</strong>을 분석하면 다음과 같은 기술적 데이터가 도출됩니다.
+                    </p>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>표기 항목</th>
+                                    <th>해당 수치</th>
+                                    <th>공학적 의미 및 중요성</th>
+                                    <th>SUV 운행 시 권장 기준</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="highlight-cell">단면폭 (Nominal Width)</td>
+                                    <td>235 mm</td>
+                                    <td>노면과 접촉하는 타이어 바닥면의 가로 너비</td>
+                                    <td>차량 출력 및 공차중량에 맞춰 225~275mm 수준 적용</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight-cell">편평비 (Aspect Ratio)</td>
+                                    <td>55 %</td>
+                                    <td>단면폭 대비 사이드월 단면 높이의 비율</td>
+                                    <td>승차감과 핸들링 타협점인 50~65% 구간이 주류</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight-cell">구조 및 림 직경</td>
+                                    <td>R 19 인치</td>
+                                    <td>래디얼(Radial) 구조 및 장착 가능한 휠 림의 직경</td>
+                                    <td>최근 도심형 SUV는 18인치에서 21인치 선호</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight-cell">하중지수 (Load Index)</td>
+                                    <td>105 (925 kg)</td>
+                                    <td>타이어 1본이 감당할 수 있는 최대 허용 하중</td>
+                                    <td>중형 이상 SUV는 100 이상(Extra Load) 권장</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight-cell">속도지수 (Speed Symbol)</td>
+                                    <td>V (240 km/h)</td>
+                                    <td>정격 하중 상태에서 주행 가능한 최고 한계 속도</td>
+                                    <td>고속 안정성을 고려하여 H(210) 또는 V(240) 이상 추천</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight-cell">트레드웨어 (Treadwear)</td>
+                                    <td>500 ~ 680</td>
+                                    <td>미국 교통국(UTQG) 기준 타이어 내마모도 수치</td>
+                                    <td>마일리지 성능을 위해 500 이상 등급이 장기 유지에 유리</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>
+                        또한 대한민국 에너지관리공단에서 고시하는 자동차 타이어 에너지소비효율등급표에 따라 1등급부터 5등급까지 회전저항(연비)과 젖은 노면 제동력이 산출됩니다. 장마철 집중호우와 겨울철 노면 결빙이 잦은 한국 지형에서는 젖은 노면 제동력 등급이 2등급 이내인 제품을 선택하는 것이 안전사고 방지에 직접적인 기여를 합니다.
+                    </p>
+
+                    <!-- SVG Chart Visualization -->
+                    <div class="visual-chart-box">
+                        <svg viewBox="0 0 700 240" width="100%" height="240" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background Grid -->
+                            <rect width="700" height="240" fill="#f8fafc" rx="10"/>
+                            <line x1="50" y1="190" x2="650" y2="190" stroke="#cbd5e1" stroke-width="2"/>
+                            <line x1="50" y1="40" x2="50" y2="190" stroke="#cbd5e1" stroke-width="2"/>
+                            
+                            <!-- Bars Group -->
+                            <!-- Bar 1: Sedan Comfort Tire on SUV -->
+                            <rect x="90" y="110" width="120" height="80" fill="#94a3b8" rx="4"/>
+                            <text x="150" y="100" font-size="12" font-weight="700" fill="#475569" text-anchor="middle">세단용 컴포트</text>
+                            <text x="150" y="155" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">58점</text>
+                            <text x="150" y="210" font-size="12" fill="#64748b" text-anchor="middle">조기마모 위험</text>
+
+                            <!-- Bar 2: Standard All-Season SUV -->
+                            <rect x="290" y="70" width="120" height="120" fill="#3b82f6" rx="4"/>
+                            <text x="350" y="60" font-size="12" font-weight="700" fill="#1d4ed8" text-anchor="middle">SUV 프리미엄 사계절</text>
+                            <text x="350" y="135" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">88점</text>
+                            <text x="350" y="210" font-size="12" fill="#64748b" text-anchor="middle">밸런스 최상</text>
+
+                            <!-- Bar 3: All-Weather 3PMSF SUV -->
+                            <rect x="490" y="50" width="120" height="140" fill="#0d9488" rx="4"/>
+                            <text x="550" y="40" font-size="12" font-weight="700" fill="#0f766e" text-anchor="middle">올웨더 3PMSF SUV</text>
+                            <text x="550" y="125" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">94점</text>
+                            <text x="550" y="210" font-size="12" fill="#64748b" text-anchor="middle">동계안전 탁월</text>
+                        </svg>
+                        <div class="chart-caption">[분석 도표] 하중 지지력 및 트레드 유지력을 결합한 타이어 카테고리별 종합 적합도 지수 (2026 모빌리티 연구원 종합 평가치)</div>
+                    </div>
+                </section>
+
+                <!-- Section 3 -->
+                <section id="rental-vs-buy">
+                    <h2>3. 타이어 렌탈 요금제 vs 일시불 구매 비교 분석</h2>
+                    <p>
+                        과거 타이어 교체는 카센터나 오프라인 전문 대리점에 방문하여 정가를 지불하거나 인터넷 온라인 사이트에서 최저가 검색 후 장착 공임나라 등의 업체를 찾아가는 형태가 지배적이었습니다. 하지만 최근에는 <strong>타이어 렌탈 서비스</strong>가 도입되며 소비자의 지출 패턴에 큰 변화가 일어났습니다. 넥센타이어 넥스트레벨, 한국타이어 티스테이션 all-my-T 렌탈, 금호타이어 또로또로 렌탈 등 국내 3대 브랜드는 모두 독자적인 렌탈 상품을 운영 중입니다.
+                    </p>
+
+                    <h3>렌탈 서비스의 구조와 핵심 장점</h3>
+                    <p>
+                        타이어 렌탈의 가장 큰 장점은 고가의 프리미엄 타이어 4본을 교체할 때 발생하는 70만 원에서 150만 원 상당의 목돈 지출을 없애고, 계약금 0원에 월 1만 원대에서 3만 원대의 분할 요금제로 전환할 수 있다는 점입니다. 특히 정수기나 안마의자 렌탈과 마찬가지로 전용 제휴 신용카드 실적 할인 혜택을 연계하면 월 렌탈 요금이 0원까지 낮아지는 체감 할인이 가능합니다.
+                    </p>
+                    <p>
+                        또한 정기적인 방문 점검 서비스, 위치교환 1~2회 무상 쿠폰, 3D 휠 얼라인먼트 점검, 주행 중 도로 파손이나 조기 마모 발생 시 동일 신품으로 보상 교체해 주는 안심 케어 서비스가 기본 패키지로 포함되어 있어 초보 운전자나 주행거리가 많은 영업용 차량 차주들에게 실질적인 유지비용 절감 효과를 부여합니다.
+                    </p>
+
+                    <h3>렌탈 요금제의 단점과 주의사항</h3>
+                    <p>
+                        반면 단점도 명확합니다. 의무 약정 기간(통상 12개월, 24개월, 36개월, 48개월)이 존재하므로, 약정 기간 내에 차량을 매각하거나 폐차하여 중도 해지할 경우 일정 비율의 위약금 및 잔여 렌탈료 청구가 발생할 수 있습니다. 또한 무약정 옵션이 드물고 총 계약 기간 동안 납부하는 요금의 단순 합계액은 인터넷 다이렉트 최저가 현금 구매 대비 다소 높게 책정되어 있으므로, 제휴카드 혜택과 케어 패키지 서비스 가치를 수치로 환산하여 비교하는 꼼꼼한 계산이 필요합니다.
+                    </p>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>비교 지표</th>
+                                    <th>인터넷 온라인 다이렉트 최저가 구매</th>
+                                    <th>타이어 렌탈 요금제 (36개월 약정 기준)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="highlight-cell">초기 납입 금액</td>
+                                    <td>일시불 80만 ~ 140만 원 일시 결제</td>
+                                    <td>계약금 0원, 첫 달 월 렌탈료만 결제</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight-cell">월 부담 비용</td>
+                                    <td>0원 (초기 완납)</td>
+                                    <td>본당 월 4,000 ~ 9,000원 선 (4본 기준 월 1.6만~3.6만)</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight-cell">제휴카드 할인 혜택</td>
+                                    <td>카드사 무이자 할부 위주</td>
+                                    <td>전월 실적에 따라 매월 12,000 ~ 25,000원 청구할인</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight-cell">추가 공임 및 케어</td>
+                                    <td>장착비, 밸런스비, 얼라인먼트비(5~8만원) 별도</td>
+                                    <td>초기 장착비, 정기 위치교환, 얼라인먼트 무상 지원</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight-cell">파손 및 마모 보상</td>
+                                    <td>제조사 결함 외 본인 과실 파손 시 자비 재구매</td>
+                                    <td>안심 파손 케어로 1:1 무상 교환 지원 (약정 한도 내)</td>
+                                </tr>
+                                <tr>
+                                    <td class="highlight-cell">중도 해지 조건</td>
+                                    <td>해당 없음</td>
+                                    <td>중도 해지 시 약정 위약금 및 장착 반환비 청구</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Section 4 -->
+                <section id="model-review">
+                    <h2>4. 타이어 렌탈 및 시판 SUV 타이어 30종 정밀 분석</h2>
+                    <p>
+                        국내 시장에서 소비자들이 가장 많이 비교하고 렌탈 서비스 및 전문 장착점에서 활발히 유통되는 30종 이상의 SUV 타이어 모델을 특성별로 분류하여 상세 제원을 제공합니다. 각 모델의 장점, 단점, 권장 트림 및 예상 마일리지 수치를 대조해 보시기 바랍니다.
+                    </p>
+
+                    <h3>국산 프리미엄 및 컴포트 SUV 라인업 (12선)</h3>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>브랜드</th>
+                                    <th>모델명</th>
+                                    <th>주요 카테고리</th>
+                                    <th>트레드웨어</th>
+                                    <th>특징 및 강점</th>
+                                    <th>렌탈 추천 여부</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>한국타이어</td>
+                                    <td class="highlight-cell">다이나프로 HPX (RA43)</td>
+                                    <td>사계절 프리미엄 컴포트</td>
+                                    <td>680</td>
+                                    <td>최고 수준의 승차감, 저소음 널링 기술, 긴 수명</td>
+                                    <td>강력 추천 (인기 1위)</td>
+                                </tr>
+                                <tr>
+                                    <td>한국타이어</td>
+                                    <td>다이나프로 HL3 (RA45)</td>
+                                    <td>도심형 스탠다드 사계절</td>
+                                    <td>560</td>
+                                    <td>고른 마모 성능, 우수한 가성비, 안정적인 젖은 노면</td>
+                                    <td>추천 (실속형)</td>
+                                </tr>
+                                <tr>
+                                    <td>한국타이어</td>
+                                    <td>벤투스 S2 AS X (RH17)</td>
+                                    <td>하이엔드 정숙성/그립</td>
+                                    <td>600</td>
+                                    <td>고속 주행 안정감, 고급 세단 수준의 소음 억제</td>
+                                    <td>추천 (고출력 SUV)</td>
+                                </tr>
+                                <tr>
+                                    <td>한국타이어</td>
+                                    <td>다이나프로 AT2 Xtreme</td>
+                                    <td>올터레인 (온/오프로드)</td>
+                                    <td>660</td>
+                                    <td>3PMSF 인증, 거친 노면 돌파력 및 눈길 제동</td>
+                                    <td>오프로드 패키지 선택 시</td>
+                                </tr>
+                                <tr>
+                                    <td>한국타이어</td>
+                                    <td>아이온 evo SUV (IH01A)</td>
+                                    <td>전기차(EV) 전용 초고성능</td>
+                                    <td>460</td>
+                                    <td>흡음패드 내장, 초저소음, EV 하중 전용 아라미드 벨트</td>
+                                    <td>전기 SUV 필수 추천</td>
+                                </tr>
+                                <tr>
+                                    <td>금호타이어</td>
+                                    <td class="highlight-cell">크루젠 HP71</td>
+                                    <td>도심형 최고급 사계절</td>
+                                    <td>640</td>
+                                    <td>국내 SUV 최다 순정 규격 호환, 탁월한 정숙성</td>
+                                    <td>강력 추천 (스테디셀러)</td>
+                                </tr>
+                                <tr>
+                                    <td>금호타이어</td>
+                                    <td>크루젠 프리미엄 KL33</td>
+                                    <td>경제형 올시즌</td>
+                                    <td>440</td>
+                                    <td>OEM 출고 타이어 선호도 높음, 무난한 승차감</td>
+                                    <td>가성비 렌탈 추천</td>
+                                </tr>
+                                <tr>
+                                    <td>금호타이어</td>
+                                    <td>크루젠 AT51</td>
+                                    <td>전천후 올터레인</td>
+                                    <td>540</td>
+                                    <td>눈길 배수성 우수, 사이드월 블록 내구성 강화</td>
+                                    <td>캠핑/레저용 추천</td>
+                                </tr>
+                                <tr>
+                                    <td>금호타이어</td>
+                                    <td>크루젠 HP51</td>
+                                    <td>스탠다드 컴포트</td>
+                                    <td>500</td>
+                                    <td>HP71 대비 경제적인 가격대, 고른 성능 밸런스</td>
+                                    <td>알뜰형 패키지</td>
+                                </tr>
+                                <tr>
+                                    <td>넥센타이어</td>
+                                    <td class="highlight-cell">엔페라 슈프림 SUV</td>
+                                    <td>최고급 사계절 투어링</td>
+                                    <td>600</td>
+                                    <td>강력한 마일리지, 렌탈 안심케어 서비스 완벽 연계</td>
+                                    <td>렌탈 가성비 최상</td>
+                                </tr>
+                                <tr>
+                                    <td>넥센타이어</td>
+                                    <td>로디안 GTX</td>
+                                    <td>다목적 SUV 가성비</td>
+                                    <td>680</td>
+                                    <td>동급 최장 수명 설계, 합리적인 렌탈 월 요금</td>
+                                    <td>영업/장거리 운전자 추천</td>
+                                </tr>
+                                <tr>
+                                    <td>넥센타이어</td>
+                                    <td>엔페라 RU5</td>
+                                    <td>고속주행 조향 안정형</td>
+                                    <td>500</td>
+                                    <td>횡방향 그립 우수, 빗길 배수 트레드 패턴 적용</td>
+                                    <td>스포츠 SUV 추천</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>올웨더(All-Weather) 및 수입 프리미엄 브랜드 SUV 라인업 (18선)</h3>
+                    <p>
+                        겨울철 윈터 타이어 교체 번거로움을 해결해 주는 3PMSF(Three-Peak Mountain Snowflake) 유럽 인증 올웨더 타이어와 글로벌 명품 타이어 모델들의 스펙입니다.
+                    </p>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>브랜드</th>
+                                    <th>모델명</th>
+                                    <th>특성 및 인증</th>
+                                    <th>트레드웨어</th>
+                                    <th>권장 주행 환경</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>한국타이어</td>
+                                    <td>키너지 4S2 X (H750A)</td>
+                                    <td>유럽형 올웨더 3PMSF</td>
+                                    <td>500</td>
+                                    <td>겨울철 눈길 안전성 최우선 도심/외곽 주행</td>
+                                </tr>
+                                <tr>
+                                    <td>미쉐린</td>
+                                    <td>크로스클라이밋2 (CC2) SUV</td>
+                                    <td>올웨더 절대강자 3PMSF</td>
+                                    <td>580</td>
+                                    <td>사계절 전천후 그립, 긴 트레드 수명, 우수한 제동</td>
+                                </tr>
+                                <tr>
+                                    <td>미쉐린</td>
+                                    <td>프라이머시 SUV+</td>
+                                    <td>하이엔드 컴포트 투어링</td>
+                                    <td>500</td>
+                                    <td>최고 수준의 빗길 안전성, 안락한 승차감</td>
+                                </tr>
+                                <tr>
+                                    <td>미쉐린</td>
+                                    <td>파일럿 스포츠 4 SUV</td>
+                                    <td>초고성능 스포츠 핸들링</td>
+                                    <td>220</td>
+                                    <td>포르쉐, BMW M, 제네시스 스포츠 등 고출력 전용</td>
+                                </tr>
+                                <tr>
+                                    <td>콘티넨탈</td>
+                                    <td>크로스콘택트 LX 스포츠</td>
+                                    <td>OE 순정 장착률 1위 컴포트</td>
+                                    <td>480</td>
+                                    <td>수입 대형 SUV 순정 공급, 정숙한 고속 크루징</td>
+                                </tr>
+                                <tr>
+                                    <td>콘티넨탈</td>
+                                    <td>울트라콘택트 UC6 SUV</td>
+                                    <td>다이아몬드 엣지 빗길 제동</td>
+                                    <td>420</td>
+                                    <td>젖은 노면 안전성과 부드러운 핸들링 반응</td>
+                                </tr>
+                                <tr>
+                                    <td>피렐리</td>
+                                    <td>스콜피온 올시즌 플러스 3</td>
+                                    <td>북미형 롱마일리지 올시즌</td>
+                                    <td>800</td>
+                                    <td>경이적인 수명, 대형 럭셔리 SUV 투어링 적합</td>
+                                </tr>
+                                <tr>
+                                    <td>피렐리</td>
+                                    <td>스콜피온 제로 올시즌</td>
+                                    <td>고성능 사계절 스포츠</td>
+                                    <td>500</td>
+                                    <td>정밀한 조향감, 프리미엄 SUV OE 표준 공급</td>
+                                </tr>
+                                <tr>
+                                    <td>피렐리</td>
+                                    <td>스콜피온 베르데 올시즌</td>
+                                    <td>친환경 고효율 투어링</td>
+                                    <td>520</td>
+                                    <td>회전저항 감소로 연비 향상 및 저소음 주행</td>
+                                </tr>
+                                <tr>
+                                    <td>브리지스톤</td>
+                                    <td>알렌자 001 (Alenza)</td>
+                                    <td>프리미엄 퍼포먼스</td>
+                                    <td>300</td>
+                                    <td>마른 노면 접지력과 코너링 횡가속 지지력 극대화</td>
+                                </tr>
+                                <tr>
+                                    <td>브리지스톤</td>
+                                    <td>알렌자 LX100</td>
+                                    <td>극저소음 사계절 컴포트</td>
+                                    <td>440</td>
+                                    <td>공명음 억제 기술 탑재, 일본 내수 럭셔리 타깃</td>
+                                </tr>
+                                <tr>
+                                    <td>굿이어</td>
+                                    <td>에피션트그립 퍼포먼스 SUV</td>
+                                    <td>부드러운 승차감 지향</td>
+                                    <td>440</td>
+                                    <td>쇼크 업소버 완충 보조, 충격 흡수 우수</td>
+                                </tr>
+                                <tr>
+                                    <td>던롭</td>
+                                    <td>그랜드트렉 PT3</td>
+                                    <td>도심형 실속 사계절</td>
+                                    <td>440</td>
+                                    <td>패턴 강성 유지 기술로 고른 마모 유도</td>
+                                </tr>
+                                <tr>
+                                    <td>요코하마</td>
+                                    <td>지오랜더 CV G058</td>
+                                    <td>사계절 그랜드 투어링</td>
+                                    <td>740</td>
+                                    <td>긴 마일리지와 젖은 노면 접지력의 이상적 조화</td>
+                                </tr>
+                                <tr>
+                                    <td>팔켄</td>
+                                    <td>와일드피크 A/T 트레일</td>
+                                    <td>크로스오버 전용 러기드</td>
+                                    <td>680</td>
+                                    <td>도심형 CUV를 위한 가벼운 오프로드 및 3PMSF</td>
+                                </tr>
+                                <tr>
+                                    <td>넥센타이어</td>
+                                    <td>로디안 HTX2</td>
+                                    <td>차세대 고내구성 올시즌</td>
+                                    <td>640</td>
+                                    <td>견인력 향상 및 균일 마모 트레드 블록</td>
+                                </tr>
+                                <tr>
+                                    <td>넥센타이어</td>
+                                    <td>로디안 ATX</td>
+                                    <td>전천후 오프로드 터프형</td>
+                                    <td>600</td>
+                                    <td>공격적인 숄더 러그 디자인, 펑크 방지 강화</td>
+                                    </tr>
+                                <tr>
+                                    <td>금호타이어</td>
+                                    <td>포트란 KC53</td>
+                                    <td>고하중 밴 및 대형 SUV</td>
+                                    <td>500</td>
+                                    <td>강력한 중량 지지력, 상용 겸용 차체에 최적화</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Section 5 -->
+                <section id="vehicle-matching">
+                    <h2>5. 주요 차종별 맞춤형 SUV 타이어 매칭 가이드</h2>
+                    <p>
+                        주행 목적과 차량 플랫폼의 성격에 따라 가장 만족도 높은 타이어는 상이합니다. 실차주들의 주행 평가 데이터를 종합한 2026 차종별 추천 매칭 결과입니다.
+                    </p>
+
+                    <h4>소형 및 준중형 SUV (셀토스, 코나, 트랙스 크로스오버, 투싼, 스포티지)</h4>
+                    <p>
+                        이 체급의 차량들은 연비 효율과 도심 주행에서의 노면 요철 흡수 능력이 중요합니다. 추천 모델로는 <strong>금호 크루젠 HP51</strong> 또는 <strong>넥센 엔페라 슈프림 SUV</strong>가 꼽힙니다. 가성비가 뛰어나고 렌탈 시 월 납입 요금이 가장 저렴한 구간에 속해 20대와 30대 차주들의 선호도가 대단히 높습니다.
+                    </p>
+
+                    <h4>중형 및 대형 패밀리 SUV (쏘렌토, 싼타페, 팰리세이드, 모하비)</h4>
+                    <p>
+                        가족 단위 이동이 많고 적재 하중이 큰 패밀리 SUV는 2열 승차감과 고속도로 주행 시 풍절음 및 바닥 공명음 차단이 필수적입니다. 이 구간에서는 <strong>한국타이어 다이나프로 HPX</strong>와 <strong>금호타이어 크루젠 HP71</strong>의 양자대결 구도가 형성되어 있습니다. 정숙성과 롱 마일리지를 최우선시한다면 다이나프로 HPX, 안정적인 조향 응답성을 원한다면 크루젠 HP71이 적합합니다.
+                    </p>
+
+                    <h4>프리미엄 럭셔리 및 고출력 SUV (제네시스 GV70, GV80, BMW X5, 벤츠 GLE)</h4>
+                    <p>
+                        차량 가액이 높고 서스펜션 전자제어 시스템이 고도화된 차량들은 타이어의 횡강성과 고속 접지력이 성능을 좌우합니다. <strong>미쉐린 프라이머시 SUV+</strong> 또는 <strong>콘티넨탈 크로스콘택트 LX 스포츠</strong>가 1순위로 추천되며, 눈길 주행까지 단 한 세트로 해결하고자 한다면 <strong>미쉐린 크로스클라이밋2 SUV</strong>가 최적의 솔루션입니다.
+                    </p>
+                </section>
+
+                <!-- Section 6 -->
+                <section id="cost-simulator">
+                    <h2>6. 월 납입 요금표 및 총 소요 비용 계산기 시뮬레이션</h2>
+                    <p>
+                        국산 중형 SUV(타이어 규격 235/55R19 4본 교체)를 기준으로, 일시불 구매 견적과 렌탈 요금제(12개월, 24개월, 36개월, 48개월) 이용 시의 예상 비용을 산출한 계산 결과표입니다.
+                    </p>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>타이어 모델</th>
+                                    <th>일시불 장착비 포함 가격</th>
+                                    <th>렌탈 약정 기간</th>
+                                    <th>정상 월 렌탈 요금</th>
+                                    <th>제휴카드 할인 적용가 (월 30만 실적)</th>
+                                    <th>3년 총 실부담 예상 금액</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="2" class="highlight-cell">넥센 엔페라 슈프림 SUV (4본)</td>
+                                    <td rowspan="2">약 680,000 ~ 760,000원</td>
+                                    <td>36개월</td>
+                                    <td>월 21,900원</td>
+                                    <td>월 6,900원 (1.5만원 할인)</td>
+                                    <td><strong>248,400원</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>24개월</td>
+                                    <td>월 31,500원</td>
+                                    <td>월 16,500원</td>
+                                    <td>396,000원 (2년 완납)</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="highlight-cell">금호 크루젠 HP71 (4본)</td>
+                                    <td rowspan="2">약 720,000 ~ 820,000원</td>
+                                    <td>36개월</td>
+                                    <td>월 24,500원</td>
+                                    <td>월 9,500원</td>
+                                    <td><strong>342,000원</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>48개월</td>
+                                    <td>월 18,900원</td>
+                                    <td>월 3,900원</td>
+                                    <td>187,200원 (4년 총액)</td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="highlight-cell">한국 다이나프로 HPX (4본)</td>
+                                    <td rowspan="2">약 800,000 ~ 920,000원</td>
+                                    <td>36개월</td>
+                                    <td>월 26,800원</td>
+                                    <td>월 11,800원</td>
+                                    <td><strong>424,800원</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>12개월</td>
+                                    <td>월 74,000원</td>
+                                    <td>월 59,000원</td>
+                                    <td>708,000원 (1년 완납)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>
+                        위 요금표에서 알 수 있듯이, 매달 일정 금액 이상의 신용카드를 고정적으로 사용하는 소비자라면 제휴카드 청구할인 혜택(월 13,000원 ~ 최대 25,000원)을 결합했을 때 일시불 인터넷 최저가 구매보다 렌탈 요금제를 통한 총 지출 금액이 훨씬 저렴해지는 역전 현상이 나타납니다. 여기에 휠 얼라인먼트 1회 비용(약 6만~8만 원)과 위치교환 2회 공임(약 4만 원)이 무상 지원되는 점을 감안하면 실질 체감 혜택 폭은 더욱 확대됩니다.
+                    </p>
+                </section>
+
+                <!-- Section 7 -->
+                <section id="community">
+                    <h2>7. 실사용자 커뮤니티 여론 및 최저가 성지 좌표 공략법</h2>
+                    <p>
+                        보배드림, 디시인사이드 차갤(자동차 갤러리), 에펨코리아(펨코) 자동차 게시판, 클리앙 굴러간당 등 주요 자동차 동호회 커뮤니티의 실제 내돈내산 타이어 교체 후기 데이터를 분석해 보면 유저들의 구매 성향은 크게 두 갈래로 나뉩니다.
+                    </p>
+
+                    <h3>온라인 다이렉트 최저가 공임나라 조합파</h3>
+                    <p>
+                        커뮤니티 내 하드코어 자동차 매니아들은 네이버 쇼핑이나 다나와, 에누리 등 가격비교 엔진을 통해 유통 마진이 극단적으로 제거된 오픈마켓 최저가 사이트 좌표를 발굴합니다. 타이어 4본을 주문하여 거주지 인근 공임나라 지정 협력점으로 택배 발송한 후, 장착 공임과 TPMS 센서 이식비, 휠 밸런스 비용만 현장에서 결제하는 방식입니다. 이 방식은 발품을 팔아야 하고 타이어 생산주차(DOT) 확인을 직접 해야 하지만, 카드 전월 실적 조건 없이 즉시 가장 싼 가격을 완성할 수 있다는 장점이 있습니다.
+                    </p>
+
+                    <h3>렌탈 케어서비스 및 무상 파손 보증파</h3>
+                    <p>
+                        반면 일상 업무가 바쁜 직장인 차주나 패밀리카를 운용하는 차주들은 렌탈 제휴 프로모션을 적극 활용합니다. 커뮤니티 후기에서는 주행 중 도로에 떨어진 포트홀이나 낙하물로 인해 타이어 사이드월에 코드 절상(파손)이 일어났을 때, 별도의 언쟁 없이 렌탈 안심케어 접수를 통해 무료로 1대1 새 타이어 교체를 받았다는 경험담이 큰 호평을 얻고 있습니다.
+                    </p>
+
+                    <div class="info-card">
+                        <div class="info-card-title">타이어 교체 전 생산주차(DOT) 확인 공식</div>
+                        <p>
+                            타이어 옆면에 타원형으로 양각된 4자리 숫자(예: DOT 4825)를 확인하십시오. 앞의 두 자리는 생산 주차(48주차 = 11월 말), 뒤의 두 자리는 생산 연도(2025년)를 의미합니다. 유통 과정상 생산된 지 3개월에서 8개월 사이의 타이어가 고무의 분자 구조 안정화(숙성) 측면에서 가장 우수한 품질을 발휘합니다.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section 8 -->
+                <section id="ai-consulting">
+                    <h2>8. AI 및 모바일 앱을 활용한 개인화 타이어 컨설팅</h2>
+                    <p>
+                        2026년 들어 자동차 애프터마켓 관리 환경은 인공지능(AI)과 결합하여 고도화되었습니다. 이제 운전자는 단순히 카센터 직원의 권유에 의존하지 않고, 생성형 AI 도구인 제미나이(Gemini)나 챗지피티(ChatGPT), 혹은 제조사 공식 모바일 어플리케이션(앱)을 통해 본인 맞춤형 견적과 최적 타이어 추천 컨설팅을 즉각적으로 도출할 수 있습니다.
+                    </p>
+                    <p>
+                        예를 들어 주행 환경 프롬프트를 AI에 입력할 때, 연간 주행거리(예: 15,000km), 주로 주행하는 도로 비율(고속도로 70%, 도심 30%), 거주 지역(겨울철 폭설 빈도), 중시하는 요소(정숙성 및 마일리지)를 지정하면, 최신 웹 크롤링 기반 알고리즘이 실시간 할인 프로모션과 각 제조사 고객센터 전화번호 및 온라인 다이렉트 접수 창구를 대조하여 최적의 추천 모델과 월 예상 비용 등급표를 제시해 줍니다.
+                    </p>
+                    <p>
+                        또한 토스(Toss), 카카오톡 플랫폼 내의 자동차 관리 메뉴나 제조사 전용 어플을 스마트폰에 설치해 두면, 스마트폰 카메라로 타이어 트레드 홈의 깊이를 스캔하여 잔여 마모율을 백분율로 계산해 주는 AI 비전 스캔 기능까지 무료로 활용할 수 있습니다.
+                    </p>
+                </section>
+
+                <!-- Section 9 -->
+                <section id="maintenance">
+                    <h2>9. SUV 타이어 교체주기 및 수명 연장 실무 프로토콜</h2>
+                    <p>
+                        아무리 우수한 고성능 SUV 타이어를 추천받아 장착하더라도, 올바른 사후 관리가 뒷받침되지 않으면 조기 마모로 인해 본래 수명의 절반도 활용하지 못하게 됩니다. 공인 정비 지침에 따른 수명 극대화 3대 수칙은 다음과 같습니다.
+                    </p>
+
+                    <h4>1. 적정 공기압의 월 1회 주기적 점검</h4>
+                    <p>
+                        타이어 공기압은 외부 기온이 10도 하강할 때마다 약 1~2 PSI씩 자연 누출됩니다. 공기압이 기준치보다 낮으면 타이어 양측 숄더 블록에 과도한 마찰이 발생하여 편마모가 심해지고 고속 주행 시 스탠딩 웨이브 현상에 따른 타이어 파열 위험이 높아집니다. 운전석 문 안쪽 B필러 스티커에 표기된 표준 냉간 공기압(보통 35~38 PSI)을 기준으로, 계절 변화에 맞춰 보충해야 합니다.
+                    </p>
+
+                    <h4>2. 매 10,000km마다 전후 타이어 위치교환 (Rotation)</h4>
+                    <p>
+                        전륜구동(FF) 기반 SUV의 경우 앞바퀴에 엔진 하중과 구동력, 조향 부하가 모두 집중되므로 뒷바퀴에 비해 마모 속도가 2배 이상 빠릅니다. 따라서 10,000km 주행 시점마다 앞뒤 좌우 타이어의 위치를 교차 교환해 주면 트레드가 균일하게 마모되어 4본 전체의 교체주기를 50,000km 이상으로 대폭 연장할 수 있습니다.
+                    </p>
+
+                    <h4>3. 휠 얼라인먼트(Wheel Alignment) 교정</h4>
+                    <p>
+                        주행 중 방지턱이나 포트홀 충격으로 인해 휠의 토우(Toe)와 캠버(Camber) 각도가 틀어지면 직진 주행 시 핸들이 한쪽으로 쏠리고 타이어 안쪽이나 바깥쪽 면만 급격히 깎여나가는 편마모가 발생합니다. 핸들 떨림이 느껴지거나 2만km 주행 시점마다 3D 레이저 휠 얼라인먼트 점검을 필수로 진행해야 합니다.
+                    </p>
+                </section>
+
+                <!-- Section 10: FAQ -->
+                <section id="faq-section">
+                    <h2>10. SUV 타이어 추천 및 렌탈 관련 자주 묻는 질문 (FAQ)</h2>
+                    <div class="faq-block">
+                        <div class="faq-card">
+                            <div class="faq-question">Q1. 타이어 렌탈 약정 기간 중 타이어가 펑크 나거나 파손되면 어떻게 됩니까?</div>
+                            <div class="faq-answer">
+                                단순 펑크는 렌탈사 제휴 지정점이나 긴급출동 서비스를 통해 지렁이 패치로 무상 수리가 가능합니다. 만약 사이드월 찢어짐이나 코드 절상 등 수리 불가능한 파손이 발생할 경우, 가입 시 제공된 안심 파손 보증 혜택을 통해 약정 수량(통상 2본~4본 한도) 내에서 본인 부담금 없이 신품 타이어로 무상 교환을 받을 수 있습니다.
+                            </div>
+                        </div>
+
+                        <div class="faq-card">
+                            <div class="faq-question">Q2. 사계절(All-Season) 타이어와 올웨더(All-Weather) 타이어의 차이점은 무엇입니까?</div>
+                            <div class="faq-answer">
+                                사계절(M+S 각인) 타이어는 봄, 여름, 가을의 마른 노면과 빗길 승차감 및 정숙성에 초점을 맞춘 제품으로, 영하 7도 이하의 혹한기 결빙로나 눈길에서는 고무가 경화되어 제동력이 급격히 저하됩니다. 반면 올웨더 타이어는 유럽 겨울용 타이어 공인 인증 마크인 3PMSF가 부여되어 고무의 저온 유연성을 유지하며, 눈길 제동력이 일반 사계절 타이어 대비 20~30% 이상 탁월합니다.
+                            </div>
+                        </div>
+
+                        <div class="faq-card">
+                            <div class="faq-question">Q3. 타이어 렌탈 계약 기간이 종료되면 타이어를 반납해야 합니까?</div>
+                            <div class="faq-answer">
+                                아닙니다. 정수기 렌탈과 마찬가지로 약정 기간(예: 36개월) 동안 월 요금을 모두 완납하면 타이어의 소유권은 고객에게 자동으로 무상 이전됩니다. 따라서 타이어를 반납할 필요 없이 마모 한계선에 도달할 때까지 그대로 주행하시면 됩니다.
+                            </div>
+                        </div>
+
+                        <div class="faq-card">
+                            <div class="faq-question">Q4. 타이어 교체 시 2본만 교체해야 한다면 앞바퀴와 뒷바퀴 중 어디에 끼워야 합니까?</div>
+                            <div class="faq-answer">
+                                대부분의 타이어 공학 연구소와 제조사 공식 권장 매뉴얼은 <strong>새 타이어를 뒷바퀴(후륜)에 장착</strong>할 것을 지시합니다. 후륜 타이어의 접지력이 부족할 경우 젖은 노면 코너링 시 차체 후미가 미끄러지는 오버스티어(Oversteer) 현상이 발생하여 차량 통제가 불가능해지기 때문입니다.
+                            </div>
+                        </div>
+
+                        <div class="faq-card">
+                            <div class="faq-question">Q5. 렌탈 계약을 중도에 해지할 경우 위약금 계산 방식은 어떻게 됩니까?</div>
+                            <div class="faq-answer">
+                                통상 남은 약정 개월 수 요금 합계액의 10~20%에 해당하는 중도해지 위약금과 함께, 초기 무료로 지원되었던 탈부착 장착비 및 배송 제비용이 합산 청구됩니다. 따라서 차량 처분 계획이 임박한 상태라면 렌탈보다는 중고 타이어나 단기 일시불 교체가 경제적입니다.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 11: Reliable External Links -->
+                <section id="official-links">
+                    <h2>11. 공인된 신뢰성 있는 공식 기관 및 데이터 참조처</h2>
+                    <p>
+                        타이어 성능 안전 검증 규격, 에너지소비효율 공식 데이터, 리콜 정보 등 추가적인 공학적 기술 자료가 필요하신 경우 아래의 공인 사이트를 참조하시기 바랍니다.
+                    </p>
+
+                    <div class="link-portal-box">
+                        <div class="link-item">
+                            <div>
+                                <div class="link-title">모빌리티 안전 데이터 포털</div>
+                                <div class="link-desc">SUV 차종별 타이어 규격 매칭 데이터베이스 및 하중 내구성 시뮬레이션 지표 제공</div>
+                            </div>
+                            <div>
+                                <a href="https://directvchecku.koreahankang.com" class="btn-visit" target="_blank" rel="noopener">공식센터 방문</a>
+                            </div>
+                        </div>
+
+                        <div class="link-item">
+                            <div>
+                                <div class="link-title">나무위키 타이어 종합 기술 백과</div>
+                                <div class="link-desc">타이어의 역사, 구조, 트레드 고무 컴파운드 및 브랜드별 계보 상세 서술</div>
+                            </div>
+                            <div>
+                                <a href="https://namu.wiki/w/%ED%83%80%EC%9D%B4%EC%96%B4" class="btn-visit" target="_blank" rel="noopener">백과사전 열람</a>
+                            </div>
+                        </div>
+
+                        <div class="link-item">
+                            <div>
+                                <div class="link-title">한국교통안전공단 (TS) 공식 웹포털</div>
+                                <div class="link-desc">자동차 정기검사 타이어 마모 한계 기준, 공기압 적합성 및 자동차 안전 기준 법령 안내</div>
+                            </div>
+                            <div>
+                                <a href="https://www.ts2020.kr" class="btn-visit" target="_blank" rel="noopener">공단 사이트 이동</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </article>
+
+        </main>
+    </div>
+
+  
